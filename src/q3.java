@@ -26,8 +26,51 @@
     Output: 0
 */
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class HardQuestion {
     public int strongPasswordChecker(String password){
-        return 0;
+      int count = 0;
+      int lower = 0;
+      int upper = 0;
+      if(password.length() < 6){
+         count = 6 - password.length();
+      } else {
+         Pattern lowerCase = Pattern.compile("[a-z]");
+         Pattern upperCase = Pattern.compile("[A-Z]");
+         Pattern numeric = Pattern.compile("[0-9]");
+         Pattern repeat = Pattern.compile("[a-zA-Z0-9]{3}");
+
+         Matcher matcher1 = lowerCase.matcher(password);
+         Matcher matcher2 = upperCase.matcher(password);
+         Matcher matcher3 = numeric.matcher(password);
+         Matcher matcher4 = repeat.matcher(password);
+
+         boolean matcher1Found = matcher1.find();
+         boolean matcher2Found = matcher2.find();
+         boolean matcher3Found = matcher3.find();
+         boolean matcher4Found = matcher4.find();
+
+         if(!matcher1Found){
+            lower = lower + 1;
+         }
+         if(!matcher2Found){
+            upper = upper + 1;
+         }
+         if(!matcher3Found){
+            count = count + 1;
+         }
+         if(matcher4Found){
+            count = count + 1;
+            if(lower == 1 && matcher4Found){
+               lower = lower - 1;
+            }
+            if(upper == 1 && matcher4Found){
+               upper = upper - 1;
+            }
+         }
+      }
+      return count + lower + upper;
     }
 }

@@ -12,11 +12,22 @@ public class App {
         // sl.singleNumber(c);
         // sl.singleNumber(d);
 
-        MediumQuestion m1 = new MediumQuestion();
-        int[] e = {1,2,1,0};
-        int[] f = {2,7,9,3,1};
-        m1.rob(e);
-        m1.rob(f);
+        // MediumQuestion m1 = new MediumQuestion();
+        // int[] e = {1,2,1,0};
+        // int[] f = {2,7,9,3,1};
+        // m1.rob(e);
+        // m1.rob(f);
 
+        HardQuestion hq = new HardQuestion();
+        // String g = "a";
+        // String h = "aA1";
+        // String i = "1337C0d3";
+        String j = "aaa111";
+        String k = "aa123";
+        // hq.strongPasswordChecker(g);
+        // hq.strongPasswordChecker(h);
+        // hq.strongPasswordChecker(i);
+        hq.strongPasswordChecker(j);
+        hq.strongPasswordChecker(k);
     }
 }
